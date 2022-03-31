@@ -1,11 +1,11 @@
-const letters = ['a', 'b', 'c', 'a', 'b', 'c', 'a', 'a', 'd'];
-letters.sort();
+const array = ['a', 'b', 'c', 'a', 'b', 'c', 'a', 'a', 'd'];
+array.sort();
 
 const findFrequency = (arr = []) => {
   const count = {};
   let most;
   let least;
-  most = letters.reduce((acc, val, ind) => {
+  most = array.reduce((acc, val, ind) => {
     count[val] = (count[val] || 0) + 1;
     if (!ind || count[val] > count[acc[0]]) {
       return [val];
@@ -14,7 +14,7 @@ const findFrequency = (arr = []) => {
     acc.push(val);
   };
     
-  least = letters.reduce((acc, val, ind) => {
+  least = array.reduce((acc, val, ind) => {
     count[val] = (count[val] || 0);
     if (ind || count[val] < count[acc[0]]) {
       return [val];
@@ -28,12 +28,7 @@ const findFrequency = (arr = []) => {
  
 }, undefined);
 return {
-  count, most, least
+  most, least
 };
 }
-console.log(findFrequency(letters));
-//  {count: {…}, most: Array(1), least: Array(1)}
-count: {a: 4, b: 2, c: 2, d: 1}
-least: ['d']
-most: ['a']
-[[Prototype]]: Object
+console.log(findFrequency(array));
